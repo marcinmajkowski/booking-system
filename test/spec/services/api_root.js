@@ -1,18 +1,18 @@
 'use strict';
 
-describe('Service: APIROOT', function () {
+describe('Service: API_ROOT', function () {
 
   // load the service's module
   beforeEach(module('bookingSystemApp'));
 
   // instantiate service
-  var APIROOT;
-  beforeEach(inject(function (_APIROOT_) {
-    APIROOT = _APIROOT_;
+  var API_ROOT;
+  beforeEach(inject(function (_API_ROOT_) {
+    API_ROOT = _API_ROOT_;
   }));
 
   it('should do something', function () {
-    expect(!!APIROOT).toBe(true);
+    expect(!!API_ROOT).toBe(true);
   });
 
 });

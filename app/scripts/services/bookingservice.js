@@ -11,6 +11,20 @@ angular.module('bookingSystemApp')
   .factory('bookingService', function ($log, $http, API_ROOT) {
     // Service logic
     // ...
+    function get() {
+      function getCompleted(response) {
+        $log.info(response);
+        return response.data._embedded.bookings;
+      }
+
+      function getFailed(error) {
+        $log.error('XHR Failed for get bookings.' + error.data);
+      }
+
+      return $http.get(API_ROOT + 'v1/bookings')
+        .then(getCompleted)
+        .catch(getFailed);
+    }
 
     var meaningOfLife = 42;
 
@@ -21,19 +35,4 @@ angular.module('bookingSystemApp')
       },
       get: get
     };
-
-    function get() {
-      return $http.get(API_ROOT + 'v1/bookings')
-        .then(getCompleted)
-        .catch(getFailed);
-
-      function getCompleted(response) {
-        $log.info(response);
-        return response.data._embedded.bookings;
-      }
-
-      function getFailed(error) {
-        $log.error('XHR Failed for get bookings.' + error.data);
-      }
-    }
   });

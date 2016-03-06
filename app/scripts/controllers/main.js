@@ -17,13 +17,13 @@ angular.module('bookingSystemApp')
 
     $scope.trainings = [];
 
-    activate();
-
     function activate() {
       return getTrainings().then(function () {
         $log.info('Activated Trainings View');
       });
     }
+
+    activate();
 
     function getTrainings() {
       return trainingService.getTrainings()
