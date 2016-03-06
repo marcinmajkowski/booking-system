@@ -8,7 +8,7 @@
  * Controller of the bookingSystemApp
  */
 angular.module('bookingSystemApp')
-  .controller('MainCtrl', function ($scope, $log, bookingService, trainingService) {
+  .controller('MainCtrl', function ($scope, $log, $uibModal, bookingService, trainingService) {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -34,4 +34,31 @@ angular.module('bookingSystemApp')
     }
 
     $scope.cokolwiek = 'test';
+
+    $scope.animationsEnabled = true;
+
+    $scope.open = function (size) {
+
+      var modalInstance = $uibModal.open({
+        animation: $scope.animationsEnabled,
+        templateUrl: 'views/booking.html',
+        controller: 'BookingCtrl',
+        size: size,
+        resolve: {
+          items: function () {
+            return $scope.items;
+          }
+        }
+      });
+
+      modalInstance.result.then(function (selectedItem) {
+        $scope.selected = selectedItem;
+      }, function () {
+        $log.info('Modal dismissed at: ' + new Date());
+      });
+    };
+
+    $scope.toggleAnimation = function () {
+      $scope.animationsEnabled = !$scope.animationsEnabled;
+    };
   });

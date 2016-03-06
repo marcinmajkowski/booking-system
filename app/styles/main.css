@@ -7,7 +7,7 @@
 
 body {
   padding: 0;
-  overflow-y: scroll;
+  overflow-y: scroll !important;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -81,4 +81,9 @@ body {
   .jumbotron {
     border-bottom: 0;
   }
+}
+
+/* Required by https://angular-ui.github.io/bootstrap */
+.nav, .pagination, .carousel, .panel-title a {
+  cursor: pointer;
 }
