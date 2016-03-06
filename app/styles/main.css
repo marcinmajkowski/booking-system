@@ -25,6 +25,10 @@ body {
   font-size: 2em;
 }
 
+#wait-message {
+  color: #bbbbbb;
+}
+
 /* Start http://stackoverflow.com/questions/22196587/how-to-center-align-vertically-the-container-in-bootstrap */
 .vertical-center {
   min-height: 100%;  /* Fallback for browsers do NOT support vh unit */

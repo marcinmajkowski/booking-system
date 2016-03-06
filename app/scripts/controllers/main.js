@@ -17,6 +17,9 @@ angular.module('bookingSystemApp')
 
     $scope.trainings = [];
 
+    //TODO global api health status
+    $scope.connected = false;
+
     function activate() {
       return getTrainings().then(function () {
         $log.info('Activated Trainings View');
@@ -29,6 +32,7 @@ angular.module('bookingSystemApp')
       return trainingService.getTrainings()
         .then(function (data) {
           $scope.trainings = data;
+          $scope.connected = true;
           return $scope.trainings;
         });
     }

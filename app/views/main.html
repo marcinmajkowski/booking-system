@@ -1,8 +1,19 @@
-<div class="row">
+<div class="row" ng-if="connected">
   <div class="list-group col-sm-12 col-md-8 col-md-offset-2 shadow">
     <a ng-repeat="training in trainings" href="#/" ng-click="open()" class="list-group-item">
       <h4 class="list-group-item-heading">{{training.date | date:"MM/dd/yyyy '-' H:mm"}} - {{training.name}}</h4>
       <p class="list-group-item-text">({{training.capacity}} miejsc)</p>
     </a>
   </div>
+</div>
+<div class="row" ng-if="!connected">
+  <div class="panel panel-default text-center col-sm-12 col-md-8 col-md-offset-2 shadow">
+    <p>
+      <img src="../images/default.svg"><br/>
+    </p>
+    <p>
+      Oczekiwanie na połączenie z systemem rezerwacji
+    </p>
+  </div>
+
 </div>
