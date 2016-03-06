@@ -8,7 +8,7 @@
  * Factory in the bookingSystemApp.
  */
 angular.module('bookingSystemApp')
-  .factory('bookingService', function ($log, $http, API_ROOT) {
+  .factory('bookingService', function ($log, $http, ENV) {
     // Service logic
     // ...
     function get() {
@@ -21,7 +21,7 @@ angular.module('bookingSystemApp')
         $log.error('XHR Failed for get bookings.' + error.data);
       }
 
-      return $http.get(API_ROOT + 'v1/bookings')
+      return $http.get(ENV.apiEndpoint + '/v1/bookings')
         .then(getCompleted)
         .catch(getFailed);
     }

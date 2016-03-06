@@ -8,7 +8,7 @@
  * Factory in the bookingSystemApp.
  */
 angular.module('bookingSystemApp')
-  .factory('trainingService', function ($log, $http, API_ROOT) {
+  .factory('trainingService', function ($log, $http, ENV) {
     // Service logic
     // ...
     function getTrainings() {
@@ -21,7 +21,7 @@ angular.module('bookingSystemApp')
         $log.error('XHR Failed for get trainings.' + error.data);
       }
 
-      return $http.get(API_ROOT + 'v1/trainings')
+      return $http.get(ENV.apiEndpoint + '/v1/trainings')
         .then(getCompleted)
         .catch(getFailed);
     }
