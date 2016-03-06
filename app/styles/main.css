@@ -7,11 +7,22 @@
 
 body {
   padding: 0;
-  background: url('../images/bg.jpg') no-repeat center center fixed;
+  background: #111111 url('../images/bg.jpg') no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
   -o-background-size: cover;
+}
+
+@font-face {
+  font-family: 'Capture Smallz Regular'; /*a name to be used later*/
+  src: url('fonts/Capsmall.ttf'); /*URL to font*/
+}
+
+#navbar-logo {
+  font-family: 'Capture Smallz Regular', sans-serif;
+  color: #ffffff;
+  font-size: 2em;
 }
 
 /* Start http://stackoverflow.com/questions/22196587/how-to-center-align-vertically-the-container-in-bootstrap */
