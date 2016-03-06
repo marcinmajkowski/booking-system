@@ -1,14 +1,8 @@
-<div class="container">
-  <div ng-repeat="training in trainings">
-    <h4 ng-bind="training.name"></h4>
-    <ul>
-      <li>Capacity: <span ng-bind="training.capacity"></span></li>
-      <li>Date: <span ng-bind="training.date"></span></li>
-    </ul>
+<div class="row">
+  <div class="list-group col-xs-8 col-xs-offset-2 shadow">
+    <a ng-repeat="training in trainings" href="#/" ng-click="open()" class="list-group-item">
+      <h4 class="list-group-item-heading">{{training.date | date:"MM/dd/yyyy '-' H:mm"}} - {{training.name}}</h4>
+      <p class="list-group-item-text">({{training.capacity}} miejsc)</p>
+    </a>
   </div>
-
-  <button type="button" class="btn btn-default" ng-click="open()">Open me!</button>
-  <button type="button" class="btn btn-default" ng-click="open('lg')">Large modal</button>
-  <button type="button" class="btn btn-default" ng-click="open('sm')">Small modal</button>
-  <button type="button" class="btn btn-default" ng-click="toggleAnimation()">Toggle Animation ({{ animationsEnabled }})</button>
 </div>

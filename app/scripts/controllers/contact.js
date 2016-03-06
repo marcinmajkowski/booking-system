@@ -2,13 +2,13 @@
 
 /**
  * @ngdoc function
- * @name bookingSystemApp.controller:AboutCtrl
+ * @name bookingSystemApp.controller:ContactCtrl
  * @description
- * # AboutCtrl
+ * # ContactCtrl
  * Controller of the bookingSystemApp
  */
 angular.module('bookingSystemApp')
-  .controller('AboutCtrl', function () {
+  .controller('ContactCtrl', function () {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
