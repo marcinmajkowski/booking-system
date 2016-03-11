@@ -45,8 +45,8 @@ angular.module('bookingSystemApp')
 
       var modalInstance = $uibModal.open({
         animation: $scope.animationsEnabled,
-        templateUrl: 'views/booking.html',
-        controller: 'BookingCtrl',
+        templateUrl: 'views/login.html',
+        controller: 'LoginCtrl',
         size: size,
         resolve: {
           items: function () {

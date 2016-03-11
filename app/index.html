@@ -21,7 +21,7 @@
     <![endif]-->
 
     <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" ng-controller="NavigationCtrl">
       <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -43,6 +43,8 @@
               <a href="#/contact">Kontakt</a>
             </li>
           </ul>
+          <p class="navbar-text navbar-right" ng-show="loginService.authenticated"><a href="#/" class="navbar-link">{{loginService.customer.firstName + ' ' + loginService.customer.lastName + ' (' + loginService.customer.email + ')'}}</a></p>
+          <p class="navbar-text navbar-right" ng-show="!loginService.authenticated"><a href ng-click="openLoginModal()" class="navbar-link">Masz karnet? Zaloguj się</a></p>
         </div>
         <!-- /.navbar-collapse -->
       </div>
@@ -85,9 +87,11 @@
     <script src="scripts/app.js"></script>
     <script src="scripts/config.js"></script>
     <script src="scripts/controllers/main.js"></script>
+    <script src="scripts/controllers/navigation.js"></script>
     <script src="scripts/services/bookingservice.js"></script>
     <script src="scripts/services/trainingservice.js"></script>
-    <script src="scripts/controllers/booking.js"></script>
+    <script src="scripts/services/loginService.js"></script>
+    <script src="scripts/controllers/login.js"></script>
     <script src="scripts/controllers/contact.js"></script>
     <!-- endbuild -->
 </body>

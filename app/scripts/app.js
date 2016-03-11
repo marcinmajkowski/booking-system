@@ -19,7 +19,7 @@ angular
     'ui.bootstrap',
     'config'
   ])
-  .config(function ($routeProvider) {
+  .config(function ($routeProvider, $httpProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
@@ -34,4 +34,6 @@ angular
       .otherwise({
         redirectTo: '/'
       });
+
+    $httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
   });
