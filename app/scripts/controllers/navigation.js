@@ -10,6 +10,7 @@ angular.module('bookingSystemApp')
         animation: true,
         templateUrl: 'views/login.html',
         controller: 'LoginCtrl',
+        size: 'sm',
         resolve: {
           items: function () {
             return $scope.items;
