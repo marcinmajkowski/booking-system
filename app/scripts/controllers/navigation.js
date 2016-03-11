@@ -6,17 +6,7 @@ angular.module('bookingSystemApp')
 
     $scope.openLoginModal = function () {
 
-      var modalInstance = $uibModal.open({
-        animation: true,
-        templateUrl: 'views/login.html',
-        controller: 'LoginCtrl',
-        size: 'sm',
-        resolve: {
-          items: function () {
-            return $scope.items;
-          }
-        }
-      });
+      var modalInstance = loginService.openLoginModal();
 
       modalInstance.result.then(function (credentials) {
         $scope.credentials = credentials;

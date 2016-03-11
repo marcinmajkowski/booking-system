@@ -8,7 +8,7 @@
  * Factory in the bookingSystemApp.
  */
 angular.module('bookingSystemApp')
-  .factory('loginService', function ($log, $http, ENV) {
+  .factory('loginService', function ($log, $http, $uibModal, ENV) {
     // Public API here
     return {
       authenticate: function (credentials, successCallback, errorCallback) {
@@ -18,7 +18,7 @@ angular.module('bookingSystemApp')
 
         var self = this;
 
-        $http.get(loginUrl, {headers: headers}).success(function(data) {
+        $http.get(loginUrl, {headers: headers}).success(function (data) {
           if (data.email) {
             self.authenticated = true;
             self.customer = data;
@@ -39,6 +39,15 @@ angular.module('bookingSystemApp')
         });
       },
       authenticated: false,
-      customer: {}
+      customer: {},
+      openLoginModal: function () {
+        return $uibModal.open({
+          animation: true,
+          templateUrl: 'views/login.html',
+          controller: 'LoginCtrl',
+          size: 'sm',
+          resolve: {}
+        });
+      }
     };
   });
