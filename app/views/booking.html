@@ -3,8 +3,8 @@
 </div>
 <div class="modal-body">
   <p>Chcesz zarezerwować miejsce na zajęciach <strong>{{ training.name }}</strong> dnia <strong>{{training.date | date:"MM/dd/yyyy"}}</strong> o godzinie <strong>{{training.date | date:"H:mm"}}</strong>.</p>
-  <p>Na adres <strong>{{ loginService.customer.email }}</strong> zostanie wysłany link którego kliknięcie spowoduje potwierdzenie Twojej rezerwacji.</p>
-  <button class="btn btn-primary btn-block" type="submit">Wyślij link potwierdzający</button>
+  <p>Na adres <strong>{{ customer.email }}</strong> zostanie wysłany link którego kliknięcie spowoduje potwierdzenie Twojej rezerwacji.</p>
+  <button class="btn btn-primary btn-block" type="button" ng-click="bookTraining(customer, training)">Wyślij link potwierdzający</button>
 </div>
 <div class="modal-footer">
   <button class="btn btn-default btn-block" type="button" ng-click="cancel()">Anuluj</button>

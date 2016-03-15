@@ -39,10 +39,10 @@ angular.module('bookingSystemApp')
 
     $scope.open = function(training) {
       if (loginService.authenticated) {
-        bookingService.openBookingModal(training);
+        bookingService.openBookingModal(loginService.customer, training);
       } else {
         loginService.openLoginModal().result.then(function () {
-          bookingService.openBookingModal(training);
+          bookingService.openBookingModal(loginService.customer, training);
         });
       }
     };

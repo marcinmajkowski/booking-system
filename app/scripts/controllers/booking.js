@@ -1,12 +1,14 @@
 'use strict';
 
 angular.module('bookingSystemApp')
-  .controller('BookingCtrl', function ($log, $scope, $uibModalInstance, loginService, training) {
-    $scope.loginService = loginService;
+  .controller('BookingCtrl', function ($log, $scope, $uibModalInstance, customer, training) {
+    $scope.customer = customer;
 
     $scope.training = training;
 
-    $scope.ok = function () {
+    $scope.bookTraining = function (customer, training) {
+      $log.info(customer);
+      $log.info(training);
       $uibModalInstance.close({});
     };
 

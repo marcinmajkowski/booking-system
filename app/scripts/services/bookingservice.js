@@ -34,18 +34,25 @@ angular.module('bookingSystemApp')
         return meaningOfLife;
       },
       get: get,
-      openBookingModal: function (training) {
+      openBookingModal: function (customer, training) {
         return $uibModal.open({
           animation: true,
           templateUrl: 'views/booking.html',
           controller: 'BookingCtrl',
           size: 'md',
           resolve: {
+            customer: function () {
+              return customer;
+            },
             training: function () {
               return training;
             }
           }
         });
+      },
+      bookTraining: function (customer, training) {
+        $log.info(customer);
+        $log.info(training);
       }
     };
   });
