@@ -37,14 +37,13 @@ angular.module('bookingSystemApp')
         });
     }
 
-    $scope.open = function() {
-
-      var modalInstance = loginService.openLoginModal();
-
-      modalInstance.result.then(function (selectedItem) {
-        $scope.selected = selectedItem;
-      }, function () {
-        $log.info('Modal dismissed at: ' + new Date());
-      });
+    $scope.open = function(training) {
+      if (loginService.authenticated) {
+        bookingService.openBookingModal(training);
+      } else {
+        loginService.openLoginModal().result.then(function () {
+          bookingService.openBookingModal(training);
+        });
+      }
     };
   });

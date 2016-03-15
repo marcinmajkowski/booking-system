@@ -1,6 +1,6 @@
 <div class="row" ng-if="connected">
   <div class="list-group col-sm-12 shadow">
-    <a ng-repeat="training in trainings" href="#/" ng-click="open()" class="list-group-item">
+    <a ng-repeat="training in trainings" href="#/" ng-click="open(training)" class="list-group-item">
       <h4 class="list-group-item-heading">{{training.date | date:"MM/dd/yyyy '-' H:mm"}} - {{training.name}}</h4>
       <p class="list-group-item-text">({{training.capacity}} miejsc)</p>
     </a>

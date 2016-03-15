@@ -8,7 +8,7 @@
  * Factory in the bookingSystemApp.
  */
 angular.module('bookingSystemApp')
-  .factory('bookingService', function ($log, $http, ENV) {
+  .factory('bookingService', function ($log, $http, $uibModal, ENV) {
     // Service logic
     // ...
     function get() {
@@ -33,6 +33,19 @@ angular.module('bookingSystemApp')
       someMethod: function () {
         return meaningOfLife;
       },
-      get: get
+      get: get,
+      openBookingModal: function (training) {
+        return $uibModal.open({
+          animation: true,
+          templateUrl: 'views/booking.html',
+          controller: 'BookingCtrl',
+          size: 'md',
+          resolve: {
+            training: function () {
+              return training;
+            }
+          }
+        });
+      }
     };
   });
