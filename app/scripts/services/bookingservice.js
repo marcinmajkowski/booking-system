@@ -53,6 +53,12 @@ angular.module('bookingSystemApp')
       bookTraining: function (customer, training) {
         $log.info(customer);
         $log.info(training);
+        $http.post(ENV.apiEndpoint + '/v1/bookings', {
+          customer: customer._links.self.href,
+          training: training._links.self.href
+        }).then(function (response) {
+          $log.info(response);
+        });
       }
     };
   });
