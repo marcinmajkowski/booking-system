@@ -1,17 +1,19 @@
 'use strict';
 
-/**
- * @ngdoc service
- * @name bookingSystemApp.trainingService
- * @description
- * # trainingService
- * Factory in the bookingSystemApp.
- */
 angular.module('bookingSystemApp')
-  .factory('loginService', function ($log, $http, $uibModal, ENV) {
-    // Public API here
+  .factory('loginService', function ($http, $uibModal, ENV) {
+    function openLoginModal() {
+      return $uibModal.open({
+        animation: true,
+        templateUrl: 'views/login.html',
+        controller: 'LoginCtrl',
+        size: 'sm',
+        resolve: {}
+      });
+    }
+
     return {
-      authenticate: function (credentials, successCallback, errorCallback) {
+      authenticate: function(credentials, successCallback, errorCallback) {
         var headers = credentials ? {authorization: 'Basic ' + btoa(credentials.username + ':' + credentials.password)} : {};
 
         var loginUrl = ENV.apiEndpoint + '/v1/customers/search/findByEmail?email=' + credentials.username;
@@ -40,14 +42,6 @@ angular.module('bookingSystemApp')
       },
       authenticated: false,
       customer: {},
-      openLoginModal: function () {
-        return $uibModal.open({
-          animation: true,
-          templateUrl: 'views/login.html',
-          controller: 'LoginCtrl',
-          size: 'sm',
-          resolve: {}
-        });
-      }
+      openLoginModal: openLoginModal
     };
   });

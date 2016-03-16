@@ -1,12 +1,11 @@
 'use strict';
 
 angular.module('bookingSystemApp')
-  .controller('LoginCtrl', function ($log, $scope, $uibModalInstance, loginService) {
+  .controller('LoginCtrl', function ($scope, $uibModalInstance, loginService) {
     $scope.credentials = {};
     $scope.error = false;
 
-    var authenticationSuccessCallback = function(data) {
-      $log.info(data);
+    var authenticationSuccessCallback = function() {
       $scope.error = false;
       $scope.ok();
     };

@@ -44,7 +44,7 @@
             </li>
           </ul>
           <p class="navbar-text navbar-right" ng-show="loginService.authenticated"><a href="#/" class="navbar-link">{{loginService.customer.firstName + ' ' + loginService.customer.lastName + ' (' + loginService.customer.email + ')'}}</a></p>
-          <p class="navbar-text navbar-right" ng-show="!loginService.authenticated"><a href ng-click="openLoginModal()" class="navbar-link">Masz karnet? Zaloguj się</a></p>
+          <p class="navbar-text navbar-right" ng-show="!loginService.authenticated"><a href ng-click="loginService.openLoginModal()" class="navbar-link">Masz karnet? Zaloguj się</a></p>
         </div>
         <!-- /.navbar-collapse -->
       </div>

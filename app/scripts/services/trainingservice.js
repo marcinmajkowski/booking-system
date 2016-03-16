@@ -9,11 +9,8 @@
  */
 angular.module('bookingSystemApp')
   .factory('trainingService', function ($log, $http, ENV) {
-    // Service logic
-    // ...
     function getTrainings() {
       function getCompleted(response) {
-        $log.info(response);
         return response.data._embedded.trainings;
       }
 
@@ -22,17 +19,10 @@ angular.module('bookingSystemApp')
       }
 
       return $http.get(ENV.apiEndpoint + '/v1/trainings')
-        .then(getCompleted)
-        .catch(getFailed);
+        .then(getCompleted, getFailed);
     }
 
-    var meaningOfLife = 42;
-
-    // Public API here
     return {
-      someMethod: function () {
-        return meaningOfLife;
-      },
       getTrainings: getTrainings
     };
   });

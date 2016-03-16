@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('bookingSystemApp')
-  .controller('BookingCtrl', function ($log, $scope, $uibModalInstance, customer, training, bookingService) {
+  .controller('BookingCtrl', function ($scope, $uibModalInstance, customer, training, bookingService) {
     $scope.customer = customer;
 
     $scope.training = training;
