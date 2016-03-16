@@ -74,7 +74,7 @@ module.exports = function (grunt) {
         constants: {
           ENV: {
             name: 'production',
-            apiEndpoint: 'http://api.bookingsystem.marcinmajkowski.com'
+            apiEndpoint: 'https://lepszy-klub-booking-system.herokuapp.com'
           }
         }
       }
